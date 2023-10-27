@@ -1,0 +1,34 @@
+//**********************************************************************
+//Workshop : #5 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 13/10/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+Functors are implemented as classes with the operator() overloaded, can be invoked by using the name of the class as if it were a function. 
+This characteristic makes functors suitable for creating utility functions. On the other hand, lambda expressions provide a way to define functions that can be stored in variables.
+They are particularly useful when you need to pass the function itself as a parameter to another function.
+
+
+2.
+To achieve the same result without exceptions, we can modify the constructor to return a boolean value indicating success or failure. 
+Then, on the client side, we can check the return value of the constructor and handle the error accordingly. 
+This approach would make the code more explicit and avoid the use of exceptions for error handling.
+
+
+3.
+To avoid code redundancy in the Movie and Book classes, you can create a common base class, such as Media. 
+Both Movie and Book classes can then inherit from this base class to share the common functionality for reading data from a file. 
+This approach promotes code reusability and maintainability by encapsulating shared logic in the base class.
+
+
+4.
+Both the Movie and Book classes need to keep their default constructors. In the main module, these classes are instantiated without any arguments, and having default constructors is essential for this purpose.
+Even though the bodies of these default constructors are empty, they serve an important role in providing the default behavior of the classes when no specific arguments are provided. 
+This is like having a default or "blank" state for the objects, allowing them to be created without the need for initial values. 
+So, while the default constructors might not contain explicit code, they are crucial for ensuring the correct operation of the program when objects are created without specific arguments.

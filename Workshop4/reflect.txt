@@ -1,0 +1,69 @@
+//**********************************************************************
+//Workshop : #4 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 06/10/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+
+1.
+The key difference between these implementations revolves around ownership and resource management.
+In the CheeseShop class, the attribute const Cheese** m_cheeses is used to oversee an array of pointers to const Cheese objects. This constitutes a composition relationship. 
+In this composition, CheeseShop possesses and assumes full responsibility for the lifecycle of the Cheese objects it contains. 
+When you add a cheese to a CheeseShop, it becomes an integral part of the shop, and the shop is responsible for the cheese's creation and destruction.
+On the other hand, in the CheeseParty class, we also use const Cheese** m_cheeses to manage an array of pointers to const Cheese objects, but this denotes an aggregation relationship. 
+In this aggregation, CheeseParty does not own or manage the lifecycle of the Cheese objects. Instead, it references these objects as independent entities. 
+The Cheese objects exist independently of the CheeseParty, and their lifecycles are not influenced by it.
+
+
+2.
+In a composition relationship, represented by CheeseShop, the class takes full responsibility for the lifecycle of the Cheese objects. 
+When implementing move and copy functions, like the move constructor and move assignment operator, CheeseShop transfers ownership of dynamically allocated resources (the Cheese objects) from one instance to another.
+It deallocates the target object's resources, then moves the ownership by copying the pointers to the dynamically allocated Cheese objects. 
+In contrast, an aggregation relationship, demonstrated by CheeseParty, means the class references resources without owning them. 
+Here, the move and copy functions primarily transfer ownership of a resource, such as a pointer to an array of const Cheese*. 
+The code copies this pointer directly, without the need to manage the Cheese objects' lifecycles. 
+This distinction underscores the importance of understanding the relationship between classes when designing object-oriented systems, as it significantly impacts how move and copy functions are implemented, ensuring efficient and accurate resource management.
+
+
+3. 
+The addCheese function diverges in implementation between the CheeseShop and CheeseParty classes due to their distinct relationships with Cheese objects. 
+In CheeseShop, representing a composition relationship, the function meticulously manages the addition of Cheese items to the shop's inventory. It assumes ownership and responsibility for these objects, necessitating a deep copy process. 
+The function dynamically allocates memory for a new Cheese object and replicates data from the provided cheese object to ensure that the shop maintains absolute control over its resources. 
+This comprehensive approach ensures that alterations to the added Cheese object won't affect the original, vital for inventory management.
+Conversely, in CheeseParty, representing an aggregation relationship, the addCheese function follows a lightweight strategy. 
+It refrains from taking ownership or control over Cheese objects and merely references them. Instead of creating new copies, the function adds a reference to the provided cheese object. 
+This approach is resource-efficient as it avoids dynamic memory allocation. It embodies the concept that these cheeses exist as independent entities, not under the party's ownership. 
+In essence, the differing addCheese implementations highlight the core disparity between composition, which entails ownership and deep copies, and aggregation, which involves lightweight references to external resources.
+
+
+4.
+To implement a removeCheese function in the CheeseShop class while maintaining alignment with its composition relationship, we need to carefully manage the ownership and lifecycles of the Cheese objects. 
+CheeseShop& removeCheese(const std::string& cheeseName) 
+{
+    int repeat = 1;
+    for (size_t i = 0; i < m_size && repeat == 1; ++i) 
+    {
+        if (m_cheeses[i]->getName() == cheeseName) // also need to create getter getName
+        {
+            delete m_cheeses[i];
+            m_cheeses[i] = nullptr;
+            for (size_t j = i; j < m_size - 1; ++j)
+            {
+                m_cheeses[j] = m_cheeses[j + 1];
+            }
+            m_cheeses[m_size - 1] = nullptr;
+            --m_size;
+            repeat = 0;
+        }
+    }
+    return *this;
+}
+
+ 1 - We iterate through the m_cheeses array to find the cheese with the specified name.
+ 2 - When the cheese is found, we deallocate its memory using delete, set the corresponding pointer to nullptr, and shift the remaining cheeses to close the gap.
+ 3 - Finally, we decrement the m_size attribute to reflect the reduced inventory size

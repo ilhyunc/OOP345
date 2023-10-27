@@ -1,0 +1,13 @@
+﻿  Book.cpp
+  SpellChecker.cpp
+  w5_p2.cpp
+D:\OOP345\workshop5\Collection.h(92,16): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\OOP345\workshop5\Collection.h(84,6): message : while compiling class template member function 'T *sdds::Collection<T>::operator [](const std::string &) const'
+          with
+          [
+              T=sdds::Movie
+          ]
+D:\OOP345\workshop5\w5_p2.cpp(298,28): message : see the first reference to 'sdds::Collection<sdds::Movie>::operator []' in 'main'
+D:\OOP345\workshop5\w5_p2.cpp(57,37): message : see reference to class template instantiation 'sdds::Collection<sdds::Movie>' being compiled
+  Generating Code...
+  workshop5.vcxproj -> D:\OOP345\workshop5\x64\Debug\workshop5.exe

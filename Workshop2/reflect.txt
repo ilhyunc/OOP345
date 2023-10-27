@@ -1,0 +1,42 @@
+//**********************************************************************
+//Workshop : #2 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 22/9/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+that the copy semantic will copy the elements of the resource, that the move semantic will move the elements of the resource. 
+moving inside the same disc will be quicker than copying as just the file path is changed and the real data is still stored on the disc. 
+Because it is merely performing a COPY operation, copying data from one disc to another will be comparatively quicker than cutting
+
+2.
+Read 'airport_data.csv' using ifstream. When reading the first time, the number of matches in the file should be counted, so the first line is excluded using getline, and the numOfLines is counted 
+while looping. When the file reaches at the end, we dynamically allocates as much as the number stored in numOfLines. After that, you have to go back to the beginning 
+of the file again because we need to include all the matches contents in the file. At that time, is.clear() and is.seekg(0) are used. seekg() allows you to find the location of a file, 
+and seekg(0) means to read from 0th. Skip the first line, run the while statement, and put the contents of all matches into an array using getline.
+
+  getline(is, temp);// scv파일 헤더.
+  while (getline(is, temp))
+  {
+      numOfLines++;
+  }
+
+  m_count = numOfLines;
+  m_airports = new Airport[m_count];
+
+  is.clear();
+  is.seekg(0);//cusor를 처음으로 돌림
+
+3.
+steady_clock is suitable for measuring time intervals, while system_clock is used for real-world timekeeping and scheduling.
+
+Steady Clock: The std::chrono::steady_clock is designed to measure time intervals with the highest possible precision and stability. 
+It is not affected by system clock adjustments or changes, such as leap seconds. Use steady_clock when you need precise timing for performance measurements or intervals between events.
+
+System Clock: The std::chrono::system_clock represents the system's real-time clock. It can be affected by system-level adjustments, including changes for time zones and daylight saving time.
+Use system_clock when you need to work with real-world time, like timestamps for logging or scheduling tasks based on real-time events.

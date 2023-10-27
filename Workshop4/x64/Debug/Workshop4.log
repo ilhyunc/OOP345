@@ -1,0 +1,7 @@
+﻿  Cheese.cpp
+  CheeseParty.cpp
+D:\OOP345\Workshop4\CheeseParty.cpp(73,50): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  CheeseShop.cpp
+  w4_p2.cpp
+  Generating Code...
+  Workshop4.vcxproj -> D:\OOP345\Workshop4\x64\Debug\Workshop4.exe

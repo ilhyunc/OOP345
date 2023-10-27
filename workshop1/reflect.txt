@@ -1,0 +1,38 @@
+//**********************************************************************
+//Workshop : #1 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 15/9/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+Internal linkage refers to the scope of a variable or function being limited to the current translation unit (source file), meaning it can't be accessed from other source files. In your code, the variables g_taxrate and g_discount are declared with external linkage because they are defined in one source file but used in another (main.cpp). These global variables can be accessed from multiple translation units.
+For example, in RideRequest.h:
+extern double g_taxrate;
+extern double g_discount;
+This declares the variables with external linkage and allows them to be used in other source files.
+
+
+2.
+I understood that static variables are valuable because they retain their values between function calls and are shared among all instances of a class. In my code, I used a static variable, counter, in the display function to keep track of the number of times the function was called across different RideRequest objects. This was particularly useful because it ensured that each RideRequest object could access and update the same counter variable, allowing me to print the correct count for each ride request.
+static int counter = 0;
+
+
+3.
+In part 2 of the workshop, I had to modify the RideRequest class to accept ride descriptions of varying lengths in the form of C-style null-terminated strings. To achieve this, I made the following changes:
+
+Previously, m_rideDescription was a fixed-size character array:
+char m_rideDescription[10]{};
+In part 2, I changed it to a dynamic character array:
+char* m_rideDescription{};
+I used dynamic memory allocation in the read function to store the m_rideDescription, ensuring that memory was allocated based on the actual length of the ride description:
+char tempDesc[256];
+is.getline(tempDesc, 256, ',');
+delete[] m_rideDescription;
+m_rideDescription = new char[strlen(tempDesc) + 1];
+strcpy(m_rideDescription, tempDesc);
+These changes allowed the RideRequest class to handle ride descriptions of varying lengths without causing memory leaks and made it more adaptable to different input data

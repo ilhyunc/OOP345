@@ -1,0 +1,30 @@
+//**********************************************************************
+//Workshop : #3 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 29/9/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+Defining Class Objects Outside the Class Definition:
+The reason for defining class objects outside the class definition is to ensure that these objects are shared among all instances of the class rather than being tied to a specific instance. 
+These objects are essentially shared class-wide resources that need to maintain a consistent state across all instances. By defining them outside the class, they become static members, 
+and their state is accessible and modifiable by all instances of the class. This allows for tracking the smallest and largest items across all instances of the Collection class, which is essential for its functionality.
+
+Specialization of m_smallestItem and m_largestItem Objects for Book and 10:
+The specialization of m_smallestItem and m_largestItem objects for Book and a capacity of 10 is necessary to set default values for these objects when the Collection class is instantiated with Book as the template type. 
+Since Book objects have specific attributes (title, chapters, pages) and the workshop requirements state that they should be initialized with empty strings and specific chapter and page counts, specialization ensures that these default values are correctly set when a Book-specific collection is created.
+
+Initialization for Book and 72:
+The initialization of m_smallestItem and m_largestItem objects for Book and a capacity of 72 serves a similar purpose to the specialization mentioned above. 
+It sets default values for these objects when a larger capacity collection is created with Book as the template type. However, in practice, this initialization might not be necessary since these objects should be updated based on the actual items added to the collection. The specialization for Book and 10 is essential because it defines specific default values that may not apply in the same way for larger collections.
+
+The getter() function in the code was originally designed to provide access to the array T m_items[C] as a pointer, allowing both reading and writing to the array's elements.
+This design choice was made to ensure flexibility in manipulating the array's contents.
+The decision to use a pointer over a reference was based on the fundamental differences between these two types. 
+References are bound to a single object after initialization and cannot be reassigned, making them less suitable for scenarios where you need to work with arrays that may change or be reassigned. 
+On the other hand, pointers can point to different memory locations, including nullptr, and can be easily updated to point to new data. In the context of an array like T m_items[C], returning a pointer provides greater flexibility in terms of accessing and modifying elements.
+The choice between a reference and a pointer should align with the collection class's purpose and user requirements. In this case, returning a pointer is the more common and appropriate choice when dealing with arrays or similar data structures, as it promotes code clarity and consistency by allowing for easy manipulation and traversal of the array's elements.

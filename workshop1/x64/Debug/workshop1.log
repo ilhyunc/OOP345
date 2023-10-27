@@ -1,0 +1,4 @@
+﻿  RideRequest.cpp
+  LINK : D:\OOP345\workshop1\x64\Debug\workshop1.exe not found or not built by the last incremental link; performing full link
+w1_p2.obj : error LNK2005: main already defined in RideRequest.obj
+D:\OOP345\workshop1\x64\Debug\workshop1.exe : fatal error LNK1169: one or more multiply defined symbols found
