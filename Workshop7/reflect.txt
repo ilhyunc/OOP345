@@ -1,0 +1,40 @@
+//**********************************************************************
+//Workshop : #7 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 9/11/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+std::sort(m_covidCollection.begin(), m_covidCollection.end(), comparator): Reasoning:
+Sorting the m_covidCollection based on different fields. std::sort is a standard and efficient way to sort a container. The comparator function allows you to define custom sorting criteria.
+
+std::any_of(m_covidCollection.begin(), m_covidCollection.end(), predicate): Reasoning: 
+Checking if a condition holds true for at least one element in m_covidCollection. std::any_of is a concise way to express this requirement.
+
+std::copy_if(m_covidCollection.begin(), m_covidCollection.end(), back_inserter(result), predicate): 
+Reasoning: Creating a new list (result) with elements that satisfy a specific condition. std::copy_if is suitable for this purpose, and back_inserter efficiently appends elements to the destination container.
+
+std::for_each(m_covidCollection.begin(), m_covidCollection.end(), action): 
+Reasoning: Updating the m_status of each element in m_covidCollection based on certain conditions. std::for_each is used here for its simplicity and clarity.
+
+2.
+std::sort, std::any_of, std::copy_if, and std::for_each for sorting, checking conditions, filtering elements, and updating statuses, respectively. These algorithms enhance code readability, maintainability, and efficiency, aligning with best practices in modern C++ development. 
+also, ensuring faster and optimized operations. In a nutshell, these algorithms not only spare us from intricate logic but also boost performance significantly compared to what we might concoct in a hurry. 
+
+3.
+enum class SortField {
+    VARIANT,
+    YEAR,
+    COUNTRY
+};
+
+case SortField::VARIANT:
+case SortField::YEAR:
+case SortField::COUNTRY:
+
+To avoid clients specifying incorrect strings for sorting, I'd suggest swapping the string parameter with an enum class (SortField). This way, we enforce valid field names, catching errors during compilation and ensuring a safer codebase. It restricts clients to predefined, accurate options, reducing the risk of typos or runtime issues

@@ -1,0 +1,15 @@
+//**********************************************************************
+//Workshop : #MS (3)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 27/11/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+This project proved to be more challenging than OOP244. I had to consistently grasp and implement the concepts throughout the semester. 
+There were moments when tackling a single function took several days, prompting me to dive into independent research and learning. 
+Despite feeling disheartened at times for not cracking the code immediately, the sense of accomplishment upon finally solving it was immense. 
+Throughout the project, I realized the importance of delving deeper into the STL library and felt the need to dedicate more time to studying it.

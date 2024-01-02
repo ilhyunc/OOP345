@@ -1,0 +1,55 @@
+//**********************************************************************
+//Workshop : #8 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 16/11/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+When working with raw pointers, it's crucial to handle errors manually using constructs like try/catch. In case an exception occurs during memory allocation or other operations, you'll need to catch the exception, 
+deallocate the dynamically allocated memory within the catch block, and ensure that memory is properly cleaned up even after exiting the block to prevent memory leaks. 
+This error-prone process of manual memory management and exception handling can lead to more complex code and increases the likelihood of overlooking memory deallocation in certain scenarios, which smart pointers automatically handle.
+
+rawPointer : 
+ if (!flag)
+ {
+     Profile* pptr = new Profile(currentProfile.m_name, currentProfile.m_address, currentProfile.m_age);
+     try {
+         pptr->validateAddress();
+         result += pptr;
+     }
+     catch (...) {
+         delete pptr;
+         throw;
+     }
+
+     delete pptr;
+ }
+
+smartPointer : 
+ if (!flag)
+ {
+     std::unique_ptr<Profile> smartPtr = std::make_unique<Profile>(currentProfile.m_name, currentProfile.m_address, currentProfile.m_age);
+         smartPtr->validateAddress();
+         result += std::move(smartPtr);
+ }
+
+2.
+In the provided solution, the raw pointer syntax involves explicit memory management using new and delete to allocate and deallocate memory for dynamically created objects. For instance:
+In contrast, the smart pointer syntax uses constructs like std::unique_ptr. which automate memory management by ensuring automatic deallocation when the pointer goes out of scope.
+The main difference comes down to manual versus automated memory management. Smart pointers automatically handle memory deallocation, sidestepping typical issues such as memory leaks and dangling pointers that are often linked with raw pointers. 
+Additionally, they streamline the syntax by incorporating memory management within the pointer objects, easing the burden on developers for explicit memory cleanup.
+
+3.
+Excessive object duplication typically occurs during the copying process between containers or within the exclusion functions themselves. To curb this, consider tweaking the functions to operate directly with references or pointers, sidestepping unnecessary object copies. 
+Employing move semantics or std::move might also prove beneficial by transferring object ownership rather than crafting new duplicates. This overhaul can significantly slash the creation of redundant objects and streamline memory usage.
+When you scrutinize the m_id values closely, you'll notice a distinct pattern of duplication. This becomes apparent as the IDs increment in a sequence, signaling the generation of numerous object copies during the exclusion process. The issue stems from how objects are managed and reallocated within these exclusion functions.
+
+4.
+If the Profile class doesn't explicitly define a move constructor and you employ std::move() to insert objects into the collection attribute within DataBase, it will end up triggering the class's copy constructor. This occurs because, in the absence of a specifically defined move constructor, the compiler generates a copy constructor, which gets invoked when std::move() is used.
+Consequently, even if you attempt to utilize std::move(), the copy constructor will be called, leading to the addition of a copied object into the collection rather than performing an actual move operation.
+To confirm this behavior, conducting an experiment by employing std::move() to add objects and examining the type of constructor invoked during this process will provide a clearer understanding of how the compiler handles this scenario.

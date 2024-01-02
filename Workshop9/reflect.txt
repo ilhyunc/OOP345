@@ -1,0 +1,26 @@
+//**********************************************************************
+//Workshop : #9 (P2)
+//Full Name : ILHYUN CHO
+//Student ID# : 116342221
+//Email : icho8@myseneca.ca
+//Date : 24/11/2023 
+//Comment :
+//I have done all the coding by myself and only copied the code 
+//that my professor provided to complete my workshops and assignments.
+//**********************************************************************
+
+1.
+Using binary files offered several advantages. Firstly, they stored data in a format directly understood by the computer's hardware, enhancing storage efficiency.
+Unlike text files, they didn't require additional space for formatting or delimiters, making them particularly effective for handling numerical data in this workshop. 
+Additionally, binary files facilitated faster read and write operations due to their direct machine-readable format, streamlining processing. 
+Moreover, they maintained data structure accuracy and ensured data integrity, crucial aspects when dealing with structured data like the numerical information in this task.
+
+2.
+Binding functions to arguments in this workshop was crucial for concurrent execution. Using std::bind enabled fixed-argument function objects, allowing parallel processing. 
+This method split data segments among threads, executing functions like computeAvgFactor and computeVarFactor simultaneously on distinct parts of the dataset. 
+This approach streamlined multi-threading, enhancing efficiency in handling large datasets through concurrent computation.
+
+3.
+Using multiple threads offers enhanced performance by concurrently executing tasks, thereby leveraging system resources efficiently. In this workshop, multi-threading was implemented by dividing data segments among threads. 
+Each thread executed compute functions simultaneously on its allocated data subset, enabling parallel computation of average and variance. 
+This approach significantly reduced processing time, particularly beneficial when dealing with substantial datasets. By harnessing the processing power of multiple threads, the overall computation time was notably reduced, showcasing the advantages of parallelism in improving computational efficiency and throughput.

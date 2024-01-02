@@ -1,0 +1,6 @@
+﻿  Utilities.cpp
+  w8_p2.cpp
+D:\OOP345\Workshop8\DataBase.h(68,20): error C2440: 'return': cannot convert from 'void' to 'std::ostream &'
+D:\OOP345\Workshop8\DataBase.h(68,20): message : Expressions of type void cannot be converted to other types
+D:\OOP345\Workshop8\w8_p2.cpp(35,13): message : see reference to function template instantiation 'std::ostream &sdds::operator <<<sdds::Profile>(std::ostream &,const sdds::DataBase<sdds::Profile> &)' being compiled
+  Generating Code...

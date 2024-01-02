@@ -1,0 +1,4 @@
+﻿  CovidCollection.cpp
+D:\OOP345\Workshop7\CovidCollection.cpp(15,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\OOP345\Workshop7\CovidCollection.cpp(16,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Workshop7.vcxproj -> D:\OOP345\Workshop7\x64\Debug\Workshop7.exe
